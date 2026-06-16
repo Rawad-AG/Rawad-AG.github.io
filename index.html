@@ -1,220 +1,58 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Portfolio | Rawad Abou Ghanem</title>
-        <link rel="icon" href="assets/favicon.svg"/>
-        <link rel="stylesheet" href="style.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        />
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="container nav-flex">
-                <div class="logo">Rawad Abou Ghanem</div>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Tech Stack</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                </ul>
-                <a href="assets/CV.pdf" class="btn btn-primary" download>
-                    <i class="fas fa-download"></i> Download CV
-                </a>
-            </div>
-        </nav>
+<html lang="en" data-theme="light" data-accent="blue">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rawad Abou Ghanem | Backend Java Developer & AI Engineer</title>
+  <meta name="description" content="Portfolio of Rawad Abou Ghanem - Mid-Level Backend Java Developer & AI Engineer specializing in microservices, Spring Boot, and AI solutions." />
+  <link rel="icon" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-        <header id="about" class="hero-section">
-            <div class="container hero-flex">
-                <div class="hero-content">
-                    <span class="tagline"
-                        >Mid-Level Backend Java Developer & AI Engineer</span
-                    >
-                    <h1>
-                        Engineering Scalable Systems & <br />
-                        Artificial Intelligence Solutions
-                    </h1>
-                    <p>
-                        Specializing in building robust microservices with
-                        Spring & Spring Boot. Integrating Large Language Models
-                        (LLMs) into enterprise architecture.
-                    </p>
-                    <div class="contact-info">
-                        <a href="mailto:rawadaboughanem0@gmail.com"
-                            ><i class="fas fa-envelope"></i>
-                            rawadaboughanem0@gmail.com</a
-                        >
-                        <a href="tel:+963951334761"
-                            ><i class="fas fa-phone"></i> +963 951 334 761</a
-                        >
-                    </div>
-                    <div class="social-links">
-                        <a
-                            href="https://www.linkedin.com/in/rawad-abou-ghanem-757100368"
-                            target="_blank"
-                            ><i class="fab fa-linkedin"></i> LinkedIn</a
-                        >
-                        <a href="https://github.com/Rawad-AG" target="_blank"
-                            ><i class="fab fa-github"></i> GitHub</a
-                        >
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="assets/avatar.png" alt="Profile Photo" />
-                </div>
-            </div>
-        </header>
+  <div id="cursorLight" class="cursor-light"></div>
 
-        <section id="skills" class="section-gray">
-            <div class="container">
-                <h2 class="section-title">Technical Expertise</h2>
-                <p class="section-subtitle"></p>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h3>Backend Engineering</h3>
-                        <p>
-                            <ul>
-                                <li>Java, Spring & Spring Boot.</li>
-                                <li>Microservices, REST/GraphQL/gRPC.</li>
-                                <li>MySQL/PostgreSQL, Redis.</li>
-                                <li>Kafka, RabbitMQ.</li>
-                            </ul>
-                        </p>
-                    </div>
+  <nav id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo">R<span class="logo-accent">A</span>G</a>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks"></ul>
+        <div class="nav-actions">
+          <div class="accent-picker" id="accentPicker"></div>
+          <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+          </button>
+          <a href="assets/CV.pdf" class="btn btn-primary nav-cv-btn" id="navCvBtn" download>
+            <i class="fas fa-download"></i> CV
+          </a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-                    <div class="skill-card">
-                        <h3>AI & Machine Learning</h3>
-                        <p>
-                            <ul>
-                                <li>Python, TensorFlow</li>
-                            </ul>
-                        </p>
-                    </div>
+  <main>
+    <section id="hero"></section>
+    <section id="about"></section>
+    <section id="skills"></section>
+    <section id="projects"></section>
+    <section id="experience"></section>
+    <section id="contact"></section>
+  </main>
 
-                    <div class="skill-card">
-                        <h3>DevOps & Cloud</h3>
-                        <p>
-                            <ul>
-                                <li>Git, CI/CD</li>
-                                <li>Docker</li>
-                            </ul>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <footer id="footer"></footer>
 
-        <section id="projects" class="section-white">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <p class="section-subtitle">
-                    A selection of my work in Software Engineering and AI.
-                </p>
+  <div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
 
-                <div class="projects-grid">
-                    <article class="project-card">
-                        <div class="project-header">
-                            <span class="project-tag">Software Engineer / Java</span>
-                            <h3>Forge</h3>
-                            <p class="project-tagline">Built by a Java Developer, for Java Developers</p>
-                        </div>
-
-                        <div class="project-body">
-                            <p>Forge is a <strong>modular, plugin-based CLI system for Java development</strong>.
-                            It provides a single execution engine that delegates all functionality to plugins, allowing developers to automate repetitive tasks and extend behavior without bloating the core.</p>
-
-                            <div class="project-specs">
-                                <strong>Stack:</strong> Java21
-                            </div>
-
-                              <div class="project-specs">
-                                <strong>Plugins:</strong>
-
-                                <ul>
-                                <li>offline postman replacement</li>
-                                <li>Code generators from small boilerplate generating to generate full projects</li>
-                                <li>plugin manager to update, install, and remove plugins</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="project-footer">
-                            <a href="https://github.com/yourusername/forge" target="_blank" class="btn-text">Explore on GitHub &rarr;</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-header">
-                            <span class="project-tag">Software Engineer</span>
-                            <h3>Base Layer</h3>
-                        </div>
-
-                        <div class="project-body">
-                            <p>A CRUD Base Layer for CRUD heavy projects, that abstracts boilerplate code, and automate CRUD operations.
-                                adding support for wide range of features like: dynamic querying to the database,
-                                soft deletion out of the box, error handling, response centralization sending system, ...
-                            </p>
-
-                            <div class="project-specs">
-                                <strong>Stack:</strong> Java21, Spring & Spring Boot
-                            </div>
-                            <div class="project-specs">
-                               <i> this project is private for the company owns it</i>
-                            </div>
-                        </div>
-
-                        <div class="project-footer">
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section-gray">
-            <div class="container">
-                <h2 class="section-title">Work Experience</h2>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025 - Present</div>
-                        <div class="timeline-content">
-                            <h3>Backend Java Developer</h3>
-                            <h4>Smart Software Solutions, Qatar</h4>
-                            <p>
-                                Responsible for developing and maintaining high-performance, <i>enterprise and government</i> level systems.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024-2025</div>
-                        <div class="timeline-content">
-                            <h3>Backend Team Leader</h3>
-                            <h4>Points Inc.</h4>
-                            <p>
-                                Leading a team of 4 developers to develop and maintain different company projects.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="container footer-content">
-                <p>&copy; 2024 Rawad Abou Ghanem. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/rawad-abou-ghanem-757100368">
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/Rawad-AG">GitHub</a>
-                    <a href="mailto:rawadaboughanem0@gmail.com">Email</a>
-                </div>
-            </div>
-        </footer>
-    </body>
+  <script src="script.js"></script>
+</body>
 </html>
