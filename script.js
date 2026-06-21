@@ -423,13 +423,25 @@ const theme = {
 
   renderAccentPicker() {
     const container = document.getElementById('accentPicker');
-    const current = document.documentElement.getAttribute('data-accent');
-    container.innerHTML = CONFIG.accentColors
-      .map(
-        (c) =>
-          `<button class="accent-dot ${c.name === current ? 'active' : ''}" data-accent="${c.name}" style="background:${c.color}" aria-label="${c.name}"></button>`
-      )
-      .join('');
+    const current = this.getCurrentAccent();
+    const color = this.getAccentColor(current);
+    container.innerHTML = `<button class="accent-btn" id="accentCycleBtn" style="background:${color}" aria-label="Cycle accent color"></button>`;
+  },
+
+  getCurrentAccent() {
+    return document.documentElement.getAttribute('data-accent') || 'blue';
+  },
+
+  getAccentColor(name) {
+    const c = CONFIG.accentColors.find((c) => c.name === name);
+    return c ? c.color : '#2563eb';
+  },
+
+  getNextAccent() {
+    const current = this.getCurrentAccent();
+    const idx = CONFIG.accentColors.findIndex((c) => c.name === current);
+    const next = CONFIG.accentColors[(idx + 1) % CONFIG.accentColors.length];
+    return next.name;
   },
 
   bindControls() {
@@ -441,13 +453,13 @@ const theme = {
     });
 
     document.getElementById('accentPicker').addEventListener('click', (e) => {
-      const dot = e.target.closest('.accent-dot');
-      if (!dot) return;
-      const accent = dot.dataset.accent;
-      document.documentElement.setAttribute('data-accent', accent);
-      localStorage.setItem('portfolio-accent', accent);
-      document.querySelectorAll('.accent-dot').forEach((d) => d.classList.remove('active'));
-      dot.classList.add('active');
+      const btn = e.target.closest('.accent-btn');
+      if (!btn) return;
+      const next = this.getNextAccent();
+      const color = this.getAccentColor(next);
+      document.documentElement.setAttribute('data-accent', next);
+      localStorage.setItem('portfolio-accent', next);
+      btn.style.background = color;
     });
   },
 };
