@@ -20,22 +20,27 @@ const CONFIG = {
 };
 
 // ==========================================
-// DATA — Edit these to update your portfolio
+// DATA — All editable content lives here.
+//
+// To add a new project: push to DATA.projects
+// To add a new skill:   push to DATA.skills
+// To add experience:    push to DATA.experience
+// To edit section text: update the matching key in DATA.sections
 // ==========================================
 
 const DATA = {
+
+  // ---- Personal Info ----------------------------------------
   personal: {
     name: 'Rawad Abou Ghanem',
-    initials: 'RAG',
-    role: 'Mid-Level Backend Java Developer & AI Engineer',
-    headline: 'Engineering Scalable Systems & Artificial Intelligence Solutions',
+    initials: 'Rawad-AG',
+    role: 'Backend & AI Engineer',
+    headline: 'Software Engineer with over 2 years of hands-on experience designing scalable backend architectures, high-performance microservices, and AI integrations. Specialized in Java (Spring Boot) and Python ecosystems.',
     bio: [
-      'I specialize in building robust microservices with Spring & Spring Boot, and integrating Large Language Models (LLMs) into enterprise architecture. My focus is on creating high-performance systems that scale effortlessly.',
-      'With a strong foundation in both backend engineering and AI, I bridge the gap between traditional enterprise development and modern intelligent systems.',
+      'I design and build scalable backend systems using Java and Spring Boot, with a focus on microservices architecture, clean APIs, and enterprise-grade security. I also work extensively with Python for AI integrations and intelligent system design.',
     ],
     email: 'rawadaboughanem0@gmail.com',
-    phone: '+963 951 334 761',
-    location: 'Qatar',
+    location: 'Damascus, Syria',
     avatar: 'assets/avatar.png',
     cv: 'assets/CV.pdf',
     social: {
@@ -44,6 +49,8 @@ const DATA = {
     },
   },
 
+  // ---- Navigation -------------------------------------------
+  //  Each entry must have a label and an id matching a <section id="..."> in index.html.
   nav: [
     { label: 'Home', id: 'hero' },
     { label: 'About', id: 'about' },
@@ -53,88 +60,258 @@ const DATA = {
     { label: 'Contact', id: 'contact' },
   ],
 
+  // ---- Section Headings ------------------------------------
+  //  Edit title / subtitle for each section from here.
+  sections: {
+    about:    { title: 'About',         subtitle: 'A brief overview of my background' },
+    skills:   { title: 'Technical Skills', subtitle: 'Technologies and tools I work with regularly' },
+    projects: { title: 'Projects',      subtitle: 'A selection of my work in software engineering and AI' },
+    experience: { title: 'Experience',  subtitle: 'My professional journey' },
+    contact:  { title: 'Contact',       subtitle: 'Open to opportunities and professional connections.' },
+  },
+
+  // ---- Stats (About section) -------------------------------
+  //  value: displayed number/text, label: description below it.
   stats: [
     { value: '2+', label: 'Years Experience' },
-    { value: '8+', label: 'Technologies' },
-    { value: '5+', label: 'Projects' },
-    { value: 'B.Eng.', label: 'Education' },
+    { value: 'ITE - AI', label: 'Education' },
+    { value: '4',  label: 'Projects' },
+    { value: 'Damascus', label: 'Location' },
   ],
 
+  // ---- Skills ----------------------------------------------
+  //  To add a new category, push an object with: category, icon, items[].
+  //  icon: any FontAwesome class (e.g. 'fa-solid fa-code').
   skills: [
     {
-      category: 'Backend Engineering',
-      icon: 'fa-solid fa-server',
-      items: ['Java', 'Spring & Spring Boot', 'Microservices', 'REST/GraphQL/gRPC', 'MySQL/PostgreSQL', 'Redis', 'Kafka', 'RabbitMQ'],
+      category: 'Languages',
+      icon: 'fa-solid fa-code',
+      items: ['Java (Spring Ecosystem)', 'Python', 'TypeScript'],
     },
     {
-      category: 'AI & Machine Learning',
+      category: 'Databases & Caching',
+      icon: 'fa-solid fa-database',
+      items: ['PostgreSQL', 'MongoDB', 'Redis'],
+    },
+    {
+      category: 'AI Frameworks & Tools',
       icon: 'fa-solid fa-brain',
-      items: ['Python', 'TensorFlow', 'LLM Integration'],
+      items: ['Spring AI', 'LangChain'],
     },
     {
-      category: 'DevOps & Cloud',
-      icon: 'fa-solid fa-cloud',
-      items: ['Git', 'CI/CD', 'Docker', 'Linux'],
+      category: 'Protocols & Specs',
+      icon: 'fa-solid fa-plug',
+      items: ['REST', 'GraphQL', 'gRPC', 'WebSockets', 'OpenAPI/Swagger'],
+    },
+    {
+      category: 'Infrastructure & Testing',
+      icon: 'fa-solid fa-gear',
+      items: ['Docker', 'Unit & Integration Tests', 'Linux', 'Git', 'RabbitMQ'],
+    },
+    {
+      category: 'AI Orchestration',
+      icon: 'fa-solid fa-robot',
+      items: ['LLM API Orchestration', 'RAG Pipelines', 'Vector Search Integration'],
     },
   ],
 
+  // ---- Projects --------------------------------------------
+  //  To add a new project, push an object with the fields below.
+  //  tag:        short role/label shown above the title
+  //  tagline:    optional italic line below the title (pass null to skip)
+  //  description: one or two sentences
+  //  stack:      array of tech tags
+  //  features:   array of bullet-point strings (pass [] to skip)
+  //  link:       URL to source code or null
+  //  type:       'open-source' | 'private'
+  //  note:       optional note shown in a locked banner (pass null to skip)
   projects: [
     {
-      title: 'Forge',
-      tag: 'Software Engineer / Java',
-      tagline: 'Built by a Java Developer, for Java Developers',
-      description: 'Forge is a modular, plugin-based CLI system for Java development. It provides a single execution engine that delegates all functionality to plugins, allowing developers to automate repetitive tasks and extend behavior without bloating the core.',
-      stack: ['Java 21'],
+      title: 'Smart News Credibility & Verification System',
+      tag: 'Creator',
+      tagline: null,
+      description: 'An intelligent news verification system designed to autonomously evaluate source credibility through multi-step search, contextual analysis, and cross-referencing rather than static whitelisting.',
+      stack: ['Java', 'Spring Boot', 'Spring AI', 'Vector Search', 'Docker'],
       features: [
-        'Offline Postman replacement for API testing',
-        'Code generators from boilerplate to full project scaffolding',
-        'Plugin manager to update, install, and remove plugins',
+        'Integrated vector search pipelines to extract, rank, and track factual truth across dynamic media sources',
+        'Architected containerized microservice deployments using Docker for modular scalability',
+      ],
+      link: null,
+      type: 'private',
+    },
+    {
+      title: 'Distributed Media Processing Pipeline',
+      tag: 'Creator & Backend Engineer',
+      tagline: 'fflib',
+      description: 'An asynchronous, job-based media execution engine wrapping FFmpeg primitives to enable non-blocking execution for long-running media workflows.',
+      stack: ['Python', 'FastAPI', 'FFmpeg', 'Docker'],
+      features: [
+        'Decoupled process execution from API request lifecycles, dropping endpoint response times from minutes to milliseconds',
+        'Abstracted complex FFmpeg CLI flags into clean REST API status and control endpoints',
+      ],
+      link: null,
+      type: 'private',
+    },
+    {
+      title: 'Enterprise Core CRUD Automation Layer',
+      tag: 'Core Developer',
+      tagline: 'Internal Tooling',
+      description: 'An enterprise generic abstraction layer built to eliminate boilerplate code across CRUD operations, entity relationships, and exception handling.',
+      stack: ['Java', 'Spring Boot', 'Enterprise Design Patterns'],
+      features: [
+        'Reduced boilerplate code and accelerated team development velocity by ~40% across company projects',
+        'Built generic responders, exception handlers, and repository inheritance models without sacrificing performance',
+      ],
+      link: null,
+      type: 'private',
+      note: 'Internal tooling — owned by the company.',
+    },
+    {
+      title: 'Forge CLI Engine & Ecosystem',
+      tag: 'Creator & Developer',
+      tagline: null,
+      description: 'A modular, plugin-based CLI platform for Java developers',
+      stack: ['Java', 'Custom Plugin Engine', 'YAML Parsing'],
+      features: [
+        'Designed a dynamic class-loader engine to isolate and execute third-party plugins at runtime',
+        'Built YAML-to-code generation drivers and a developer SDK for consistent plugin creation',
+        'Http client, that integrates seamlessly with git so you can manage API documentation as part of the codebase'
       ],
       link: 'https://github.com/Rawad-AG/forge',
       type: 'open-source',
     },
-    {
-      title: 'Base Layer',
-      tag: 'Software Engineer',
-      tagline: null,
-      description: 'A CRUD Base Layer for CRUD-heavy projects that abstracts boilerplate code and automates CRUD operations. Supports dynamic database querying, soft deletion, error handling, and a centralized response system.',
-      stack: ['Java 21', 'Spring & Spring Boot'],
-      features: [],
-      link: null,
-      type: 'private',
-      note: 'This project is private — owned by the company.',
-    },
   ],
 
+  // ---- Experience ------------------------------------------
+  //  To add a new role, push an object with: role, company, location, period, description.
   experience: [
     {
-      role: 'Backend Java Developer',
+      role: 'Backend Developer',
       company: 'Smart Software Solutions',
       location: 'Qatar',
-      period: '2025 - Present',
-      description: 'Developing and maintaining high-performance enterprise and government-level systems using Java and the Spring ecosystem.',
+      period: 'Oct 2024 - Present',
+      description: 'Architected high-performance backend infrastructure for critical government projects. Designed a reusable framework to speed up developement time and add strong infrastructure layer.',
     },
     {
-      role: 'Backend Team Leader',
-      company: 'Points Inc.',
-      location: null,
-      period: '2024 - 2025',
-      description: 'Led a team of 4 developers to build and maintain multiple company projects, ensuring code quality, architecture decisions, and timely delivery.',
+      role: 'Backend Developer',
+      company: 'Early-Stage Startup',
+      location: 'Syria',
+      period: 'Mar 2024 – Oct 2024',
+      description: 'Led the foundational backend design for multi-tenant e-commerce and ed-tech platforms using Node.js, Express, and MongoDB. Built the core architecture from scratch—including scalable routing, custom middleware, security layers (OAuth2/JWT).',
     },
   ],
 
-  contact: {
-    heading: "Let's Connect",
-    subtitle: 'Have a project in mind or just want to say hi? Reach out.',
-  },
+  // ---- Contact Links (Contact section) ---------------------
+  //  Each card needs: icon (FontAwesome class), label, value (display text), href (link or null for plain text).
+  contactLinks: [
+    { icon: 'fas fa-envelope',       label: 'Email',   value: 'rawadaboughanem0@gmail.com', href: 'mailto:rawadaboughanem0@gmail.com' },
+    { icon: 'fab fa-linkedin-in',    label: 'LinkedIn', value: 'linkedin.com/in/rawad-abou-ghanem', href: 'https://www.linkedin.com/in/rawad-abou-ghanem-757100368' },
+    { icon: 'fab fa-github',         label: 'GitHub',  value: 'github.com/Rawad-AG', href: 'https://github.com/Rawad-AG' },
+  ],
 
+  // ---- Footer ----------------------------------------------
   footer: {
     copyright: `\u00A9 ${new Date().getFullYear()} Rawad Abou Ghanem. All rights reserved.`,
   },
 };
 
+
 // ==========================================
-// RENDERERS
+// TEMPLATES — Generic HTML generators.
+//   Each function takes a data object and
+//   returns an HTML string.
+// ==========================================
+
+const TEMPLATES = {
+
+  skillCard(skill) {
+    return `
+      <div class="skill-card">
+        <div class="card-head">
+          <div class="card-icon"><i class="${skill.icon}"></i></div>
+          <h3>${skill.category}</h3>
+        </div>
+        <div class="skill-tags">
+          ${skill.items.map((t) => `<span class="skill-tag">${t}</span>`).join('')}
+        </div>
+      </div>`;
+  },
+
+  projectCard(p) {
+    const features = p.features.length > 0
+      ? `<ul class="project-features">${p.features.map((f) => `<li>${f}</li>`).join('')}</ul>`
+      : '';
+    const tagline = p.tagline ? `<p class="project-tagline">${p.tagline}</p>` : '';
+    const note = p.note ? `<div class="project-note"><i class="fas fa-lock"></i> ${p.note}</div>` : '';
+    const link = p.link
+      ? `<a href="${p.link}" target="_blank" class="btn-text">Source <i class="fas fa-arrow-right"></i></a>`
+      : '<span></span>';
+    const statusIcon = p.type === 'private' ? 'fas fa-lock' : 'fas fa-code-branch';
+    const statusText = p.type === 'private' ? 'Private' : 'Open Source';
+
+    return `
+      <article class="project-card">
+        <div class="project-card-top">
+          <span class="project-tag">${p.tag}</span>
+          <h3>${p.title}</h3>
+          ${tagline}
+          <p class="project-desc">${p.description}</p>
+          ${features}
+          <div class="project-stack">
+            ${p.stack.map((t) => `<span class="stack-tag">${t}</span>`).join('')}
+          </div>
+          ${note}
+        </div>
+        <div class="project-card-bottom">
+          ${link}
+          <span class="project-status">
+            <i class="${statusIcon}"></i> ${statusText}
+          </span>
+        </div>
+      </article>`;
+  },
+
+  timelineItem(exp) {
+    return `
+      <div class="timeline-item reveal">
+        <span class="timeline-date">${exp.period}</span>
+        <h3>${exp.role}</h3>
+        <div class="timeline-company">
+          <i class="fas fa-building"></i> ${exp.company}${exp.location ? ` \u2014 ${exp.location}` : ''}
+        </div>
+        <p>${exp.description}</p>
+      </div>`;
+  },
+
+  contactCard(link) {
+    const tag = link.href
+      ? `<a href="${link.href}" target="_blank">${link.value}</a>`
+      : `<span>${link.value}</span>`;
+
+    return `
+      <div class="contact-card">
+        <div class="contact-icon"><i class="${link.icon}"></i></div>
+        <h4>${link.label}</h4>
+        ${tag}
+      </div>`;
+  },
+
+  statItem(s) {
+    return `
+      <div class="stat-item">
+        <div class="stat-value">${s.value}</div>
+        <div class="stat-label">${s.label}</div>
+      </div>`;
+  },
+};
+
+
+// ==========================================
+// SECTION RENDERERS
+//   Each reads from DATA and uses TEMPLATES.
+//   To add/remove/reorder sections, edit the
+//   matching DATA key — no template changes
+//   needed.
 // ==========================================
 
 function renderNav() {
@@ -142,6 +319,13 @@ function renderNav() {
   ul.innerHTML = DATA.nav
     .map((item) => `<li><a href="#${item.id}">${item.label}</a></li>`)
     .join('');
+
+  const logo = document.getElementById('navLogo');
+  const initials = DATA.personal.initials;
+  logo.innerHTML =
+    initials.slice(0, 1) +
+    `<span class="logo-accent">${initials.slice(1, 2)}</span>` +
+    initials.slice(2);
 }
 
 function renderMobileNav() {
@@ -160,13 +344,15 @@ function renderMobileNav() {
 function renderHero() {
   const section = document.getElementById('hero');
   const p = DATA.personal;
+  const [first, ...rest] = p.name.split(' ');
+  const lastName = rest.join(' ');
 
   section.innerHTML = `
     <div class="container hero-grid">
       <div class="hero-content">
         <h1 class="reveal">
-          Hi, I'm ${p.name.split(' ')[0]}<br>
-          <span class="accent-text">${p.name.split(' ').slice(1).join(' ')}</span>
+          Hi, I'm ${first}<br>
+          <span class="accent-text">${lastName}</span>
         </h1>
         <p class="hero-subtitle reveal">${p.role}</p>
         <p class="hero-description reveal">${p.headline}</p>
@@ -195,19 +381,19 @@ function renderHero() {
           <img src="${p.avatar}" alt="${p.name}" loading="lazy" />
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 function renderAbout() {
   const section = document.getElementById('about');
+  const { title, subtitle } = DATA.sections.about;
   const p = DATA.personal;
 
   section.innerHTML = `
     <div class="container">
       <div class="section-header reveal">
-        <h2 class="section-title">About</h2>
-        <p class="section-subtitle">A brief overview of my background</p>
+        <h2 class="section-title">${title}</h2>
+        <p class="section-subtitle">${subtitle}</p>
       </div>
       <div class="about-wrapper">
         <div class="about-text reveal">
@@ -219,164 +405,74 @@ function renderAbout() {
           </p>
         </div>
         <div class="stats-grid reveal">
-          ${DATA.stats
-            .map(
-              (s) => `
-            <div class="stat-item">
-              <div class="stat-value">${s.value}</div>
-              <div class="stat-label">${s.label}</div>
-            </div>
-          `
-            )
-            .join('')}
+          ${DATA.stats.map(TEMPLATES.statItem).join('')}
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 function renderSkills() {
   const section = document.getElementById('skills');
+  const { title, subtitle } = DATA.sections.skills;
 
   section.innerHTML = `
     <div class="container">
       <div class="section-header top reveal">
-        <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">Technologies and tools I work with regularly</p>
+        <h2 class="section-title">${title}</h2>
+        <p class="section-subtitle">${subtitle}</p>
       </div>
       <div class="skills-grid stagger-children">
-        ${DATA.skills
-          .map(
-            (skill) => `
-          <div class="skill-card">
-            <div class="card-head">
-              <div class="card-icon"><i class="${skill.icon}"></i></div>
-              <h3>${skill.category}</h3>
-            </div>
-            <div class="skill-tags">
-              ${skill.items.map((item) => `<span class="skill-tag">${item}</span>`).join('')}
-            </div>
-          </div>
-        `
-          )
-          .join('')}
+        ${DATA.skills.map(TEMPLATES.skillCard).join('')}
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 function renderProjects() {
   const section = document.getElementById('projects');
+  const { title, subtitle } = DATA.sections.projects;
 
   section.innerHTML = `
     <div class="container">
       <div class="section-header top reveal">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">A selection of my work in software engineering and AI</p>
+        <h2 class="section-title">${title}</h2>
+        <p class="section-subtitle">${subtitle}</p>
       </div>
       <div class="projects-grid stagger-children">
-        ${DATA.projects
-          .map(
-            (p) => `
-          <article class="project-card">
-            <div class="project-card-top">
-              <span class="project-tag">${p.tag}</span>
-              <h3>${p.title}</h3>
-              ${p.tagline ? `<p class="project-tagline">${p.tagline}</p>` : ''}
-              <p class="project-desc">${p.description}</p>
-              ${
-                p.features.length > 0
-                  ? `<ul class="project-features">
-                  ${p.features.map((f) => `<li>${f}</li>`).join('')}
-                </ul>`
-                  : ''
-              }
-              <div class="project-stack">
-                ${p.stack.map((tech) => `<span class="stack-tag">${tech}</span>`).join('')}
-              </div>
-              ${p.note ? `<div class="project-note"><i class="fas fa-lock"></i> ${p.note}</div>` : ''}
-            </div>
-            <div class="project-card-bottom">
-              ${
-                p.link
-                  ? `<a href="${p.link}" target="_blank" class="btn-text">
-                  Source <i class="fas fa-arrow-right"></i>
-                </a>`
-                  : '<span></span>'
-              }
-              <span class="project-status">
-                <i class="${p.type === 'private' ? 'fas fa-lock' : 'fas fa-code-branch'}"></i>
-                ${p.type === 'private' ? 'Private' : 'Open Source'}
-              </span>
-            </div>
-          </article>
-        `
-          )
-          .join('')}
+        ${DATA.projects.map(TEMPLATES.projectCard).join('')}
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 function renderExperience() {
   const section = document.getElementById('experience');
+  const { title, subtitle } = DATA.sections.experience;
 
   section.innerHTML = `
     <div class="container">
       <div class="section-header top reveal">
-        <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">My professional journey</p>
+        <h2 class="section-title">${title}</h2>
+        <p class="section-subtitle">${subtitle}</p>
       </div>
       <div class="timeline">
-        ${DATA.experience
-          .map(
-            (exp) => `
-          <div class="timeline-item reveal">
-            <span class="timeline-date">${exp.period}</span>
-            <h3>${exp.role}</h3>
-            <div class="timeline-company">
-              <i class="fas fa-building"></i> ${exp.company}${exp.location ? ` \u2014 ${exp.location}` : ''}
-            </div>
-            <p>${exp.description}</p>
-          </div>
-        `
-          )
-          .join('')}
+        ${DATA.experience.map(TEMPLATES.timelineItem).join('')}
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 function renderContact() {
   const section = document.getElementById('contact');
-  const p = DATA.personal;
-  const c = DATA.contact;
+  const { title, subtitle } = DATA.sections.contact;
 
   section.innerHTML = `
     <div class="container">
       <div class="section-header top reveal">
-        <h2 class="section-title">${c.heading}</h2>
-        <p class="section-subtitle">${c.subtitle}</p>
+        <h2 class="section-title">${title}</h2>
+        <p class="section-subtitle">${subtitle}</p>
       </div>
       <div class="contact-grid reveal">
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <h4>Email</h4>
-          <a href="mailto:${p.email}">${p.email}</a>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-phone"></i></div>
-          <h4>Phone</h4>
-          <a href="tel:${p.phone.replace(/\s/g, '')}">${p.phone}</a>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <h4>Location</h4>
-          <span>${p.location}</span>
-        </div>
+        ${DATA.contactLinks.map(TEMPLATES.contactCard).join('')}
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 function renderFooter() {
@@ -391,8 +487,7 @@ function renderFooter() {
         <a href="${p.social.github}" target="_blank">GitHub</a>
         <a href="mailto:${p.email}">Email</a>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 function renderAll() {
@@ -406,6 +501,7 @@ function renderAll() {
   renderContact();
   renderFooter();
 }
+
 
 // ==========================================
 // THEME
