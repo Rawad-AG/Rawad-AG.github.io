@@ -136,8 +136,8 @@ const DATA = {
         'Integrated vector search pipelines to extract, rank, and track factual truth across dynamic media sources',
         'Architected containerized microservice deployments using Docker for modular scalability',
       ],
-      link: null,
-      type: 'private',
+      link: 'https://github.com/Rawad-AG/fact-checker',
+      type: 'open-source',
     },
     {
       title: 'Distributed Media Processing Pipeline',
